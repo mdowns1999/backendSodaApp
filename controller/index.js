@@ -6,11 +6,10 @@ const getAllSodas = async (req, res) => {
     
         const result = await mongodb
           .getDb()
-          .db("sodaDB")
+          .db("sodaShop")
           .collection("sodas")
           .find();
     
-          console.log("MADE IT ")
     
         result.toArray().then((lists) => {
           res.setHeader("Content-Type", "application/json");
