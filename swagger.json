@@ -5,10 +5,10 @@
     "description": "Poppin Sodas",
     "version": "1.0.0"
   },
-  "host": "localHost:8080",
+  "host": "poppinsodasbackend.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/sodas/": {
