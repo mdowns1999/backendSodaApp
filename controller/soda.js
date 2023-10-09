@@ -27,7 +27,12 @@ const getAllSodas = async (req, res) => {
           .getDb()
           .db("sodaShop")
           .collection("sodas")
-          .find({ _id: ObjectId(sodaIdString)});
+          .find({ id: sodaIdString});
+        // const result = await mongodb
+        //   .getDb()
+        //   .db("sodaShop")
+        //   .collection("sodas")
+        //   .find({ _id: ObjectId(sodaIdString)});
     
         result.toArray().then((lists) => {
           res.setHeader("Content-Type", "application/json");
