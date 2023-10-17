@@ -21,29 +21,28 @@ const getAllOrders = async (req, res) => {
     };
 
     const postNewOrder= async (req, res) => {
-        // try {
-        //   const movie = {
-        //     movie_id: req.body.movie_id,
-        //     title: req.body.title,
-        //     rating: req.body.rating,
-        //     plot: req.body.plot,
-        //     length: req.body.length,
-        //   };
+        try {
+          const order = {
+            order_id: req.body.order_id,
+            name: "Mike Downs",
+            order_num: req.body.order_num,
+            cart: req.body.cart
+          };
       
 
-        //   const result = await mongodb
-        //     .getDb()
-        //     .db("movies")
-        //     .collection("movie")
-        //     .insertOne(movie);
+          const result = await mongodb
+            .getDb()
+            .db("sodaShop")
+            .collection("orders")
+            .insertOne(order);
       
-        //   if (result.acknowledged) {
-        //     res.status(202).json(result);
-        //     console.log("The contact was successfully inserted!");
-        //   }
-        // } catch (err) {
-        //   res.status(500).json(err.message);
-        // }
+          if (result.acknowledged) {
+            res.status(202).json(result);
+            console.log("The order was successfully inserted!");
+          }
+        } catch (err) {
+          res.status(500).json(err.message);
+        }
       };
 
 module.exports = {
