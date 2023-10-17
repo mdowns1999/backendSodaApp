@@ -1,4 +1,5 @@
 const mongodb = require("../db/connect");
+const valid = require("../helper");
 const ObjectId = require("mongodb").ObjectId;
 
 const getAllOrders = async (req, res) => {
@@ -29,6 +30,11 @@ const getAllOrders = async (req, res) => {
             cart: req.body.cart
           };
       
+          const response = valid.validateOrder(order);
+          if(response.error){
+            res.status(422).json(response.error.message);
+            return;
+          }
 
           const result = await mongodb
             .getDb()

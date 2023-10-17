@@ -1,21 +1,26 @@
-// const Joi = require("joi");
+const Joi = require("joi");
 
-// function validateMovie(movie) {
-//   const JoiSchema = Joi.object({
-//     movie_id: Joi.string().min(1).max(2).required(),
+function validateOrder(order) {
+  const JoiSchema = Joi.object({
+    order_id: Joi.string().min(1).max(3).required(),
 
-//     title: Joi.string().min(1).max(50).required(),
+    name: Joi.string().min(1).max(50).required(),
 
-//     rating: Joi.string().min(1).max(5).required(),
+    order_num: Joi.string().min(1).max(6).required(),
 
-//     plot: Joi.string().min(20).max(1000).optional(),
+    // cart: Joi.array().items({
+    //     id: Joi.string().min(1).max(3).required(),
+    //     name: Joi.string().required(),
+    //     amount: Joi.number().required(),
+    //     price: Joi.number().required(),
+    //     size: Joi.string().required()
+    // })
 
-//     length: Joi.string().required(),
-//   }).options({ abortEarly: false });
+  }).options({ abortEarly: false });
 
-//   return JoiSchema.validate(movie);
-// }
+  return JoiSchema.validate(order);
+}
 
-// module.exports = {
-//   validateMovie,
-// };
+module.exports = {
+  validateOrder,
+};
