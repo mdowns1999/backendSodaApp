@@ -4,9 +4,12 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const app = express();
+
+
 app
   .use(bodyParser.json())
-  .use()
+  .use(cors())
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
