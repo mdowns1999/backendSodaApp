@@ -4,15 +4,9 @@ const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const app = express();
-var corsOptions = {
-  origin: "http://localhost:3000"
-};
-
-
 app
   .use(bodyParser.json())
-  .use(cors(corsOptions))
+  .use()
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
