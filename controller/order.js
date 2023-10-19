@@ -30,11 +30,11 @@ const getAllOrders = async (req, res) => {
             cart: req.body.cart
           };
       
-          // const response = valid.validateOrder(order);
-          // if(response.error){
-          //   res.status(422).json(response.error.message);
-          //   return;
-          // }
+          const response = valid.validateOrder(order);
+          if(response.error){
+            res.status(422).json(response.error.message);
+            return;
+          }
 
           const result = await mongodb
             .getDb()
