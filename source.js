@@ -5,10 +5,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
+var corsOptions = {
+  origin: "http://localhost:3000"
+};
+
 
 app
   .use(bodyParser.json())
-  .use(cors())
+  .use(cors(corsOptions))
   .use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
