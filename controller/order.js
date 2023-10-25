@@ -1,6 +1,5 @@
 const mongodb = require("../db/connect");
 const valid = require("../helper");
-const ObjectId = require("mongodb").ObjectId;
 
 const getAllOrders = async (req, res) => {
     try {
