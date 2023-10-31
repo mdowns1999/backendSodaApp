@@ -4,7 +4,6 @@ const MongoClient = require("mongodb").MongoClient;
 //https://bobbyhadz.com/blog/javascript-typeerror-callback-is-not-a-function
 let _db;
 
-
 const initDb = (callback = () => {}) => {
   if (_db) {
     console.log("Db is already initialized!");
@@ -30,6 +29,5 @@ const getDb = () => {
 module.exports = {
   initDb,
   getDb,
-  _db
+  _db,
 };
-

@@ -1,12 +1,12 @@
 const mongodb = require("../db/connect");
 const valid = require("../helper");
 
-const getAllOrders = async (req, res) => {
+const getAllReviews = async (req, res) => {
   try {
     const result = await mongodb
       .getDb()
       .db("sodaShop")
-      .collection("orders")
+      .collection("reviews")
       .find();
 
     result.toArray().then((lists) => {
@@ -18,9 +18,9 @@ const getAllOrders = async (req, res) => {
   }
 };
 
-const postNewOrder = async (req, res) => {
+const postNewReview = async (req, res) => {
   try {
-    const order = {
+    const review = {
       order_id: req.body.order_id,
       name: "Mike Downs",
       order_num: req.body.order_num,
@@ -36,12 +36,12 @@ const postNewOrder = async (req, res) => {
     const result = await mongodb
       .getDb()
       .db("sodaShop")
-      .collection("orders")
-      .insertOne(order);
+      .collection("reviews")
+      .insertOne(review);
 
     if (result.acknowledged) {
       res.status(202).json(result);
-      console.log("The order was successfully inserted!");
+      console.log("The review was successfully inserted!");
     }
   } catch (err) {
     res.status(500).json(err.message);
@@ -49,6 +49,6 @@ const postNewOrder = async (req, res) => {
 };
 
 module.exports = {
-  getAllOrders,
-  postNewOrder,
+  getAllReviews,
+  postNewReview,
 };
