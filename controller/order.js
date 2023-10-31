@@ -18,6 +18,24 @@ const getAllOrders = async (req, res) => {
   }
 };
 
+const getOrderByID = async (req, res) => {
+  try {
+    const sodaIdString = req.params.id;
+    const result = await mongodb
+      .getDb()
+      .db("sodaShop")
+      .collection("orders")
+      .find({ id: sodaIdString });
+
+    result.toArray().then((lists) => {
+      res.setHeader("Content-Type", "application/json");
+      res.status(200).json(lists);
+    });
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
+};
+
 const postNewOrder = async (req, res) => {
   try {
     const order = {
@@ -50,5 +68,6 @@ const postNewOrder = async (req, res) => {
 
 module.exports = {
   getAllOrders,
+  getOrderByID,
   postNewOrder,
 };
