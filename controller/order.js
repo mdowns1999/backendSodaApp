@@ -25,7 +25,7 @@ const getOrderByID = async (req, res) => {
       .getDb()
       .db("sodaShop")
       .collection("orders")
-      .find({ order_id: 1 });
+      .find({ order_id: +orderIdString });
 
     result.toArray().then((lists) => {
       res.setHeader("Content-Type", "application/json");
