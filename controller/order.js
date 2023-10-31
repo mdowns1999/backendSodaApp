@@ -40,7 +40,7 @@ const postNewOrder = async (req, res) => {
   try {
     const order = {
       order_id: req.body.order_id,
-      name: "Mike Downs",
+      name: req.body.name,
       order_num: req.body.order_num,
       cart: req.body.cart,
     };
