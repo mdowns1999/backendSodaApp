@@ -20,12 +20,12 @@ const getAllOrders = async (req, res) => {
 
 const getOrderByID = async (req, res) => {
   try {
-    const sodaIdString = req.params.id;
+    const orderIdString = req.params.id;
     const result = await mongodb
       .getDb()
       .db("sodaShop")
       .collection("orders")
-      .find({ id: sodaIdString });
+      .find({ order_id: orderIdString });
 
     result.toArray().then((lists) => {
       res.setHeader("Content-Type", "application/json");
