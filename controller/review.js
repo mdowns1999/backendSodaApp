@@ -21,10 +21,10 @@ const getAllReviews = async (req, res) => {
 const postNewReview = async (req, res) => {
   try {
     const review = {
-      order_id: req.body.order_id,
-      name: "Mike Downs",
-      order_num: req.body.order_num,
-      cart: req.body.cart,
+      order_id: req.body.id,
+      name: req.body.name,
+      rating: req.body.rating,
+      message: req.body.message
     };
 
     // const response = valid.validateOrder(order);
