@@ -21,7 +21,7 @@ const getAllReviews = async (req, res) => {
 const postNewReview = async (req, res) => {
   try {
     const review = {
-      order_id: req.body.id,
+      id: req.body.id,
       name: req.body.name,
       rating: req.body.rating,
       message: req.body.message
