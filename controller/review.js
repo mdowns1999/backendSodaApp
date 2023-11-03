@@ -24,7 +24,8 @@ const postNewReview = async (req, res) => {
       id: req.body.id,
       name: req.body.name,
       rating: req.body.rating,
-      message: req.body.message
+      message: req.body.message,
+      date: req.body.date
     };
 
     // const response = valid.validateOrder(order);
