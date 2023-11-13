@@ -14,7 +14,6 @@ function validateOrder(order) {
       name: Joi.string().required(),
       price: Joi.number().required(),
       size: Joi.number().required(),
-  
     }),
   }).options({ abortEarly: false });
 
@@ -24,9 +23,7 @@ function validateOrder(order) {
 function validateReview(review) {
   const JoiSchema = Joi.object({
     id: Joi.number().min(1).max(1000).required(),
-
     name: Joi.string().min(1).max(50).required(),
-
     rating: Joi.number().min(1).max(5).required(),
     message: Joi.string(),
     date: Joi.string().required(),
