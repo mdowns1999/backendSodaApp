@@ -42,6 +42,8 @@ const postNewOrder = async (req, res) => {
       order_id: req.body.order_id,
       name: req.body.name,
       order_num: req.body.order_num,
+      phone: req.body.phone,
+      notes: req.body.notes,
       cart: req.body.cart,
     };
 
