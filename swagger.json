@@ -100,6 +100,12 @@
                 "order_num": {
                   "example": "any"
                 },
+                "phone": {
+                  "example": "any"
+                },
+                "notes": {
+                  "example": "any"
+                },
                 "cart": {
                   "example": "any"
                 }
