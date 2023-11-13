@@ -13,7 +13,7 @@ function validateOrder(order) {
       name: Joi.string().required(),
       amount: Joi.number().required(),
       price: Joi.number().required(),
-      ingredients: {baseSoda: Joi.string(), ingredients: Joi.array()},
+      ingredients: { baseSoda: Joi.string(), ingredients: Joi.array() },
       size: Joi.number().required(),
     }),
   }).options({ abortEarly: false });
@@ -29,14 +29,13 @@ function validateReview(review) {
 
     rating: Joi.number().min(1).max(5).required(),
     message: Joi.string(),
-    date: Joi.string().required()
-
+    date: Joi.string().required(),
   }).options({ abortEarly: false });
 
-  return JoiSchema.validate(order);
+  return JoiSchema.validate(review);
 }
 
 module.exports = {
   validateOrder,
-  validateReview
+  validateReview,
 };

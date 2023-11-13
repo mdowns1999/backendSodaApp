@@ -25,11 +25,11 @@ const postNewReview = async (req, res) => {
       name: req.body.name,
       rating: req.body.rating,
       message: req.body.message,
-      date: req.body.date
+      date: req.body.date,
     };
 
     const response = valid.validateReview(review);
-    if(response.error){
+    if (response.error) {
       res.status(422).json(response.error.message);
       return;
     }

@@ -46,7 +46,7 @@ const postNewOrder = async (req, res) => {
     };
 
     const response = valid.validateOrder(order);
-    if(response.error){
+    if (response.error) {
       res.status(422).json(response.error.message);
       return;
     }
