@@ -7,14 +7,15 @@ function validateOrder(order) {
     name: Joi.string().min(1).max(50).required(),
     phone: Joi.string().required(),
     notes: Joi.string(),
-    // cart: Joi.array().items({
-    //   id: Joi.string().min(1).max(10).required(),
-    //   name: Joi.string().required(),
-    //   amount: Joi.number().required(),
-    //   price: Joi.number().required(),
-    //   ingredients: { baseSoda: Joi.string(), ingredients: Joi.array() },
-    //   size: Joi.number().required(),
-    // }),
+    cart: Joi.array().items({
+      amount: Joi.number().required(),
+      id: Joi.string().min(1).max(10).required(),
+      ingredients: { baseSoda: Joi.string(), ingredients: Joi.array() },
+      name: Joi.string().required(),
+      price: Joi.number().required(),
+      size: Joi.number().required(),
+  
+    }),
   }).options({ abortEarly: false });
 
   return JoiSchema.validate(order);
