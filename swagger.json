@@ -94,6 +94,9 @@
                 "order_id": {
                   "example": "any"
                 },
+                "name": {
+                  "example": "any"
+                },
                 "order_num": {
                   "example": "any"
                 },
@@ -107,6 +110,9 @@
         "responses": {
           "202": {
             "description": "Accepted"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"
@@ -162,13 +168,19 @@
             "schema": {
               "type": "object",
               "properties": {
-                "order_id": {
+                "id": {
                   "example": "any"
                 },
-                "order_num": {
+                "name": {
                   "example": "any"
                 },
-                "cart": {
+                "rating": {
+                  "example": "any"
+                },
+                "message": {
+                  "example": "any"
+                },
+                "date": {
                   "example": "any"
                 }
               }
@@ -178,6 +190,9 @@
         "responses": {
           "202": {
             "description": "Accepted"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
           },
           "500": {
             "description": "Internal Server Error"

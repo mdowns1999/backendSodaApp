@@ -28,11 +28,11 @@ const postNewReview = async (req, res) => {
       date: req.body.date
     };
 
-    // const response = valid.validateOrder(order);
-    // if(response.error){
-    //   res.status(422).json(response.error.message);
-    //   return;
-    // }
+    const response = valid.validateReview(review);
+    if(response.error){
+      res.status(422).json(response.error.message);
+      return;
+    }
 
     const result = await mongodb
       .getDb()
