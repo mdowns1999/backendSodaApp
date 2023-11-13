@@ -45,11 +45,11 @@ const postNewOrder = async (req, res) => {
       cart: req.body.cart,
     };
 
-    // const response = valid.validateOrder(order);
-    // if(response.error){
-    //   res.status(422).json(response.error.message);
-    //   return;
-    // }
+    const response = valid.validateOrder(order);
+    if(response.error){
+      res.status(422).json(response.error.message);
+      return;
+    }
 
     const result = await mongodb
       .getDb()
@@ -71,3 +71,10 @@ module.exports = {
   getOrderByID,
   postNewOrder,
 };
+
+// {"order_id":250 ,
+// "name":"Collin Lee",
+// "order_num":250,
+// "cart":[{"id":"s28","name":"Basic White Girl","amount":1,"price":1.5 ,
+// "ingredients":{"baseSoda":"Dr.Pepper",
+// "ingredients":["Coffee Creamer","Vanilla","Raspberry"]},"size":8}]}

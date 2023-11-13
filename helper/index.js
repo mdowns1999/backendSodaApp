@@ -13,7 +13,8 @@ function validateOrder(order) {
       name: Joi.string().required(),
       amount: Joi.number().required(),
       price: Joi.number().required(),
-      size: Joi.string().required(),
+      ingredients: Joi.array(),
+      size: Joi.number().required(),
     }),
   }).options({ abortEarly: false });
 
