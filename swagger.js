@@ -1,18 +1,10 @@
-//RUn: npm run swagger-autogen to update Swagger docs
+//Run: npm run swagger-autogen to update Swagger docs
 const swaggerAutogen = require("swagger-autogen")();
 
-// const doc = {
-//   info: {
-//     title: 'My API',
-//     description: 'Poppin Sodas'
-//   },
-//   host: 'localHost:8080',
-//   schemes: ['http']
-// };
 const doc = {
   info: {
-    title: "My API",
-    description: "Poppin Sodas",
+    title: "Poppin Soda API",
+    description: "The backedn service for Poppin sodas.  The website can be accessed at: https://mdowns1999.github.io/poppin-soda/",
   },
   host: "poppinsodasbackend.onrender.com",
   schemes: ["https"],

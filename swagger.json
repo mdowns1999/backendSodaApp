@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
-    "description": "Poppin Sodas",
+    "title": "Poppin Soda API",
+    "description": "The backedn service for Poppin sodas.  The website can be accessed at: https://mdowns1999.github.io/poppin-soda/",
     "version": "1.0.0"
   },
   "host": "poppinsodasbackend.onrender.com",
@@ -13,7 +13,7 @@
   "paths": {
     "/sodas/": {
       "get": {
-        "description": "",
+        "description": "Get all Soda Drinks from the database.",
         "produces": [
           "application/json"
         ],
@@ -29,7 +29,7 @@
     },
     "/sodas/{id}": {
       "get": {
-        "description": "",
+        "description": "Get One Soda Drink from the database.",
         "produces": [
           "application/json"
         ],
@@ -53,7 +53,7 @@
     },
     "/custom/": {
       "get": {
-        "description": "",
+        "description": "Get Ingredients for the drinks from the database.",
         "produces": [
           "application/json"
         ],
@@ -69,7 +69,7 @@
     },
     "/orders/": {
       "get": {
-        "description": "",
+        "description": "Get All Orders from the database.",
         "produces": [
           "application/json"
         ],
@@ -83,7 +83,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Post an order to the database.",
         "parameters": [
           {
             "name": "body",
@@ -128,7 +128,7 @@
     },
     "/orders/{id}": {
       "get": {
-        "description": "",
+        "description": "Get One Order by ID from the database.",
         "produces": [
           "application/json"
         ],
@@ -152,7 +152,7 @@
     },
     "/reviews/": {
       "get": {
-        "description": "",
+        "description": "Get All Reviews from the database.",
         "produces": [
           "application/json"
         ],
@@ -166,7 +166,7 @@
         }
       },
       "post": {
-        "description": "",
+        "description": "Post a review to the database",
         "parameters": [
           {
             "name": "body",

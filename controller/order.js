@@ -3,6 +3,7 @@ const valid = require("../helper");
 
 const getAllOrders = async (req, res) => {
   try {
+    // #swagger.description = 'Get All Orders from the database.'
     const result = await mongodb
       .getDb()
       .db("sodaShop")
@@ -20,6 +21,7 @@ const getAllOrders = async (req, res) => {
 
 const getOrderByID = async (req, res) => {
   try {
+    // #swagger.description = 'Get One Order by ID from the database.'
     const orderIdString = req.params.id;
     const result = await mongodb
       .getDb()
@@ -38,6 +40,7 @@ const getOrderByID = async (req, res) => {
 
 const postNewOrder = async (req, res) => {
   try {
+    // #swagger.description = 'Post an order to the database.'
     const order = {
       order_id: req.body.order_id,
       name: req.body.name,

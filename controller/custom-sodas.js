@@ -2,6 +2,7 @@ const mongodb = require("../db/connect");
 
 const getCustomSodaIngredients = async (req, res) => {
   try {
+    // #swagger.description = 'Get Ingredients for the drinks from the database.'
     const result = await mongodb
       .getDb()
       .db("sodaShop")

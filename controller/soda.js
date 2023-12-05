@@ -2,6 +2,7 @@ const mongodb = require("../db/connect");
 
 const getAllSodas = async (req, res) => {
   try {
+    // #swagger.description = 'Get all Soda Drinks from the database.'
     const result = await mongodb
       .getDb()
       .db("sodaShop")
@@ -19,6 +20,7 @@ const getAllSodas = async (req, res) => {
 
 const getSodaByID = async (req, res) => {
   try {
+    // #swagger.description = 'Get One Soda Drink from the database.'
     const sodaIdString = req.params.id;
     const result = await mongodb
       .getDb()

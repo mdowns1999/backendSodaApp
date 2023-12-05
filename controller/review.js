@@ -3,6 +3,7 @@ const valid = require("../helper");
 
 const getAllReviews = async (req, res) => {
   try {
+    // #swagger.description = 'Get All Reviews from the database.'
     const result = await mongodb
       .getDb()
       .db("sodaShop")
@@ -20,6 +21,7 @@ const getAllReviews = async (req, res) => {
 
 const postNewReview = async (req, res) => {
   try {
+    // #swagger.description = 'Post a review to the database'
     const review = {
       id: req.body.id,
       name: req.body.name,
