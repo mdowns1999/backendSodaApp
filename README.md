@@ -3,7 +3,8 @@
 Welcome to the backend portion of the Poppin Soda website! For this backend code, I used Node and Express to create all my routes.  I used Jest to test if my routes responded to any hits on them.  I also used Swagger API to create the documentation for it.  Feel free to look at the code and the swagger documentation!
 
 * [Poppin Soda Swagger API Docs](https://poppinsodasbackend.onrender.com/api-docs/#/)
-* [Poppin Soda Website (Frontend)](https://mdowns1999.github.io/poppin-soda/)
+* [Poppin Soda Frontend Code](https://github.com/mdowns1999/poppin-soda)
+* [Poppin Soda Live Website](https://mdowns1999.github.io/poppin-soda/)
 
 # Development Environment 
 
