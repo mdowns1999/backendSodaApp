@@ -6,7 +6,7 @@ function validateOrder(order) {
     order_num: Joi.number().min(1).max(1000).required(),
     name: Joi.string().min(1).max(50).required(),
     phone: Joi.string().required(),
-    notes: Joi.string(),
+    notes: Joi.string().allow(''),
     cart: Joi.array().items({
       amount: Joi.number().required(),
       id: Joi.string().min(1).max(10).required(),
