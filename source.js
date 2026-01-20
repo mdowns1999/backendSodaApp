@@ -1,27 +1,20 @@
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
 
-app
-  .use(bodyParser.json())
-  .use(cors())
-  .use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PATCH, PUT, DELETE, OPTIONS"
-    );
-    next();
-  })
+// Use Express 5 built-in body parser
+app.use(express.json());
 
-  .use("/", require("./routes"));
+// Consolidated CORS configuration
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Origin", "X-Requested-With", "Content-Type", "Accept"]
+}));
+
+app.use("/", require("./routes"));
 
 module.exports = app;

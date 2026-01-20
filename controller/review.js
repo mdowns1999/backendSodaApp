@@ -4,18 +4,17 @@ const valid = require("../helper");
 const getAllReviews = async (req, res) => {
   try {
     // #swagger.description = 'Get All Reviews from the database.'
-    const result = await mongodb
+    const lists = await mongodb
       .getDb()
       .db("sodaShop")
       .collection("reviews")
-      .find();
+      .find()
+      .toArray();
 
-    result.toArray().then((lists) => {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).json(lists);
-    });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(lists);
   } catch (err) {
-    res.status(400).json(err.message);
+    res.status(400).json({ error: err.message });
   }
 };
 
@@ -47,7 +46,7 @@ const postNewReview = async (req, res) => {
       console.log("The review was successfully inserted!");
     }
   } catch (err) {
-    res.status(500).json(err.message);
+    res.status(500).json({ error: err.message });
   }
 };
 
