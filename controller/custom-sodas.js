@@ -3,18 +3,17 @@ const mongodb = require("../db/connect");
 const getCustomSodaIngredients = async (req, res) => {
   try {
     // #swagger.description = 'Get Ingredients for the drinks from the database.'
-    const result = await mongodb
+    const lists = await mongodb
       .getDb()
       .db("sodaShop")
       .collection("custom-sodas")
-      .find();
+      .find()
+      .toArray();
 
-    result.toArray().then((lists) => {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).json(lists);
-    });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(lists);
   } catch (err) {
-    res.status(400).json(err.message);
+    res.status(400).json({ error: err.message });
   }
 };
 

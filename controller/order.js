@@ -4,18 +4,17 @@ const valid = require("../helper");
 const getAllOrders = async (req, res) => {
   try {
     // #swagger.description = 'Get All Orders from the database.'
-    const result = await mongodb
+    const lists = await mongodb
       .getDb()
       .db("sodaShop")
       .collection("orders")
-      .find();
+      .find()
+      .toArray();
 
-    result.toArray().then((lists) => {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).json(lists);
-    });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(lists);
   } catch (err) {
-    res.status(400).json(err.message);
+    res.status(400).json({ error: err.message });
   }
 };
 
@@ -23,18 +22,17 @@ const getOrderByID = async (req, res) => {
   try {
     // #swagger.description = 'Get One Order by ID from the database.'
     const orderIdString = req.params.id;
-    const result = await mongodb
+    const lists = await mongodb
       .getDb()
       .db("sodaShop")
       .collection("orders")
-      .find({ order_id: +orderIdString });
+      .find({ order_id: +orderIdString })
+      .toArray();
 
-    result.toArray().then((lists) => {
-      res.setHeader("Content-Type", "application/json");
-      res.status(200).json(lists);
-    });
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(lists);
   } catch (err) {
-    res.status(500).json(err.message);
+    res.status(500).json({ error: err.message });
   }
 };
 
@@ -67,7 +65,7 @@ const postNewOrder = async (req, res) => {
       console.log("The order was successfully inserted!");
     }
   } catch (err) {
-    res.status(500).json(err.message);
+    res.status(500).json({ error: err.message });
   }
 };
 
